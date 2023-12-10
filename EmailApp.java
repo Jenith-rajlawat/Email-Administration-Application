@@ -3,7 +3,7 @@ package EmailApplication;
 public class EmailApp {
 	
 	public static void main(String[] args) {
-		System.out.println("How are you?");
+		Email em1 =new Email("John", "Smith"); //Invokes the default constructor everytime a object of Email is created
 	}
 	
 }

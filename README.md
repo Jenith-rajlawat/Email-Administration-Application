@@ -20,6 +20,4 @@ https://github.com/Jenith-rajlawat/Email-Administration-Application.git
 ```
 
 
-```
-
 

@@ -1,7 +1,7 @@
 package EmailApplication;
 
 public class Email {
-	private String fristNname;
+	private String firstName; //set as private to ensure encapsulation
 	private String lastName;
 	private String password;
 	private String department;
@@ -9,6 +9,12 @@ public class Email {
 	private String alternateEmail;
 	
 	//Constructor to receive the first name and last name
+	public Email(String firstName, String lastName) {
+		this.firstName=firstName; //this refers to the class variable not the local one
+		this.lastName=lastName;
+		System.out.println("Email Created: "+this.firstName+" "+ this.lastName);
+	}
+	
 	
 	//Ask for the department
 	
