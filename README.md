@@ -22,5 +22,4 @@ https://github.com/Jenith-rajlawat/Email-Administration-Application.git
 
 ```
 
-The app will start running at <http://localhost:8080>.
 
