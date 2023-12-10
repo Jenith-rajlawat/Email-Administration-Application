@@ -8,8 +8,10 @@ public class Email {
 	private String password;
 	private int defaultPasswordLength=8;
 	private String department;
+	private String email;
 	private int mailBoxCapacity;
 	private String alternateEmail;
+	private String companySuffix ="rajlawatcompany.com";
 	
 	//Constructor to receive the first name and last name
 	public Email(String firstName, String lastName) {
@@ -23,7 +25,12 @@ public class Email {
 		
 		//Call method that returns random password
 		this.password= randomPassword(defaultPasswordLength);
-		System.out.println("Your Password is :"+this.password);
+		System.out.println("Your Password is : "+this.password);
+		
+		//Combine element to generate email
+		email =firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" +department+"."+ companySuffix ;
+		
+		System.out.println("Your Email is : "+this.email);
 	}
 	
 	
@@ -33,9 +40,9 @@ public class Email {
 		Scanner in = new Scanner(System.in); //in eclipse ctrl+shift+o to import libraries
 		int choice;
 		choice=in.nextInt();
-		if(choice==1) {return "Sales";	}
-		else if(choice==2) {return "Development";} //ctril+alt+downarrow to duplicate selected line
-		else if(choice==3) {return "Account";}
+		if(choice==1) {return "sales";	}
+		else if(choice==2) {return "dev";} //ctril+alt+downarrow to duplicate selected line
+		else if(choice==3) {return "acc";}
 		else {return "";}
 		
 	}
@@ -53,6 +60,7 @@ public class Email {
 	}
 	
 	//Set the alternate email
+
 	
 	//change the password
 }
