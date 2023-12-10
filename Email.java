@@ -9,19 +9,18 @@ public class Email {
 	private int defaultPasswordLength=8;
 	private String department;
 	private String email;
-	private int mailBoxCapacity;
+	private int mailBoxCapacity=500;
 	private String alternateEmail;
 	private String companySuffix ="rajlawatcompany.com";
 	
+	//-------------------------------------------------------------------
 	//Constructor to receive the first name and last name
 	public Email(String firstName, String lastName) {
 		this.firstName=firstName; //this refers to the class variable not the local one
 		this.lastName=lastName;
-		System.out.println("Email Created: "+this.firstName+" "+ this.lastName);
 		
 		//Call a method asking for the department -returns department
 		this.department=setDepartment();
-		System.out.println("Department: "+this.department);
 		
 		//Call method that returns random password
 		this.password= randomPassword(defaultPasswordLength);
@@ -30,11 +29,12 @@ public class Email {
 		//Combine element to generate email
 		email =firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" +department+"."+ companySuffix ;
 		
-		System.out.println("Your Email is : "+this.email);
 	}
 	
+	//----------------------------------------------------------------
+	//SETTERS
 	
-	//Ask for the department
+	//Ask for the department method
 	private String setDepartment() {
 		System.out.println(" DEPARTMENT CODES\n1) For Sales\n2) For Development\n3) For Accounting\n0) For none\n Enter department code: ");
 		Scanner in = new Scanner(System.in); //in eclipse ctrl+shift+o to import libraries
@@ -47,20 +47,52 @@ public class Email {
 		
 	}
 	
-	//Generate the random password
+	//Generate the random password method
 	private String randomPassword(int length) {
-		String passwordSet = "ABCDEFGHIJKLMNOPQSTUVWXYZ0123456789!@#$%";
+		String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%";
 		char[] password =new char[length];
 		for(int i=0; i<length;i++) {
 			int rand=(int)(Math.random() * passwordSet.length()); //Math.random() returns value between 0 to 1 with floating point
 			password[i]=passwordSet.charAt(rand);
 		}
-		return password.toString();
+		return new String(password);
 		
 	}
 	
-	//Set the alternate email
+	//Set mailbox capacity method
+	public void setMailBoxCapacity(int capacity) {
+		this.mailBoxCapacity =capacity;
+	}
+	
+	
+	
+	//Set the alternate email method
+	public void setAlternateEmail(String altEmail) {
+		this.alternateEmail=altEmail;
+	}
 
 	
-	//change the password
+	//change the password method
+	public void changePassword(String password) {
+		this.password =password;
+	}
+	//--------------------------------------------------------
+	//GETTERS
+	public int getMailBoxCapacity() {
+		return mailBoxCapacity;
+	}
+	
+	public String getAlernateEmail() {
+		return alternateEmail;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public String showInfo() {
+		return "DISPLAY NAME : " + firstName + " " +lastName + 
+				"\nCOMPANY EMAIL: "+email+
+				"\nMAILBOX CAPACITY:"+mailBoxCapacity +"mb";
+	}
 }
